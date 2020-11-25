@@ -1,11 +1,7 @@
-# Exports
-export ZSH="/home/your_user/.oh-my-zsh"
+export ZSH="/path/to/the/user/.oh-my-zsh"
 
 export LANG=en_US.UTF-8
-export LESS='-R'
-export LESSOPEN='|~/.lessfilter %s'
 
-# Theme
 ZSH_THEME="spaceship"
 
 # Configs Spaceship
@@ -42,7 +38,7 @@ SPACESHIP_PROMPT_ORDER=(
   #hg            # Mercurial section (hg_branch  + hg_status)
   #ruby          # Ruby section
   #elixir        # Elixir section
-  #xcode         # Xcode section
+  xcode         # Xcode section
   #swift         # Swift section
   #rust          # Rust section
   #haskell       # Haskell Stack section
@@ -54,94 +50,101 @@ SPACESHIP_PROMPT_ORDER=(
   #battery       # Battery level and status
 )
 
-# Plugins
 plugins=(
-  ansible
-  aterminal
-  # autojump
-  chucknorris
+  #ansible
+  #ant
+  #autojump
+  #aws
+  #bower
+  #brew
+  #cake
+  #cargo
+  catimg
+  #chucknorris
   colorize
   colored-man-pages
   command-not-found
-  common-aliases
   #composer
-  extract
-  docker-compose
-  docker
-  dotenv
+  #docker-compose
+  #docker
+  #dotenv
+  #dotnet
   encode64
   extract
   git
   gitignore
-  golang
-  gulp
-  heroku
+  #golang
+  #gulp
+  #helm
+  #heroku
   history
-  httpie
+  #httpie
   jsontools
+  #kubectl
+  #laravel
   last-working-dir
+  #microk8s
+  #minikube
+  #mvn
+  #mix
+  #ng
+  #nomad
+  nmap
   #node
   #npm
-  #npx
-  nvm
-  perms
+  #nvm
+  #osx
   #per-directory-history
-  rsync
+  perms
+  #redis-cli
+  ripgrep
+  #rsync
+  #rust
   ssh-agent
   systemd
+  #terraform
   thefuck
-  transfer
   tig
+  tmux
+  #tmuxinator
+  #torrent
+  #ubuntu
+  #ufw
   urltools
+  #vagrant
   vi-mode
-  vscode
-  vundle
+  #vscode
   web-search
   #yarn
-  z
   zsh-autosuggestions
   zsh-syntax-highlighting
   zsh-completions
-  history-substring-search
-  zsh_reload
 )
 
 autoload -U compinit && compinit
 
-# Hosts
-alias hosts="sudo vim /etc/hosts"
-
-# HiCat
-alias hi="hicat"
-
-# Chrome
-alias chrome="open -a 'Google Chrome'"
-
-# SSH
-export SSH="~/.ssh/rsa_id"
-alias __getssh="cat ~/.ssh/id_rsa.pub"
-
 # Weather
-alias __weather="curl wttr.in/~Samara"
+alias __weather="curl wttr.in/~Moscow"
 
 # Star Wars
 alias __starwars="telnet towel.blinkenlights.nl"
 
-# Clone nikolasmelui github projects (boilerplates)
-alias __gcnb="git clone https://github.com/NikolasMelui/nodejs-boilerplate.git"
-alias __gcsrb="git clone https://github.com/NikolasMelui/strapi-react-boilerplate.git"
-
-# Corol ls
-alias lsc='colorls --dark --sort-dirs --report'
-alias lc='colorls --tree --dark'
+# Vi and Vim
+alias vi="vim"
+alias tree="tree -C"
 
 # Fuck
 eval $(thefuck --alias)
 
-# ZSH
+# Clone nikolasmelui github projects (boilerplates)
+alias __gcnnb="git clone git@github.com:NikolasMelui/nikolasmelui-nodejs-boilerplate.git"
+
 source $ZSH/oh-my-zsh.sh
 
-# NVM
-export NVM_DIR="/home/your_user/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+# Tab completion for .ssh/config
+complete -o default -o nospace -W "$(grep "^Host" $HOME/.ssh/config | cut -d " " -f2)" scp sftp ssh
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
