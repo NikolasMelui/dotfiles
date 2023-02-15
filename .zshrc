@@ -1,4 +1,4 @@
-export ZSH="/path/to/the/user/.oh-my-zsh"
+export ZSH="/Users/nsladkii/.oh-my-zsh"
 
 export LANG=en_US.UTF-8
 
@@ -21,7 +21,7 @@ SPACESHIP_PROMPT_ORDER=(
   git           # Git section (git_branch + git_status)
   package       # Package version
   node          # Node.js section
-  php           # PHP section
+  #php           # PHP section
   conda         # conda virtualenv section
   pyenv         # Pyenv section
   venv          # virtualenv section
@@ -38,9 +38,9 @@ SPACESHIP_PROMPT_ORDER=(
   #hg            # Mercurial section (hg_branch  + hg_status)
   #ruby          # Ruby section
   #elixir        # Elixir section
-  xcode         # Xcode section
+  #xcode         # Xcode section
   #swift         # Swift section
-  #rust          # Rust section
+  rust          # Rust section
   #haskell       # Haskell Stack section
   #julia         # Julia section
   #aws           # Amazon Web Services section
@@ -51,29 +51,28 @@ SPACESHIP_PROMPT_ORDER=(
 )
 
 plugins=(
-  #ansible
+  ansible
   #ant
   #autojump
   #aws
   #bower
-  #brew
+  brew
   #cake
-  #cargo
+  rust
   catimg
   #chucknorris
   colorize
   colored-man-pages
   command-not-found
   #composer
-  #docker-compose
-  #docker
+  docker
   #dotenv
   #dotnet
   encode64
   extract
   git
   gitignore
-  #golang
+  golang
   #gulp
   #helm
   #heroku
@@ -90,17 +89,17 @@ plugins=(
   #ng
   #nomad
   nmap
-  #node
-  #npm
-  #nvm
-  #osx
+  node
+  npm
+  nvm
+  macos
   #per-directory-history
   perms
   #redis-cli
   ripgrep
   #rsync
-  #rust
-  ssh-agent
+  rust
+  #ssh-agent
   systemd
   #terraform
   thefuck
@@ -113,9 +112,9 @@ plugins=(
   urltools
   #vagrant
   vi-mode
-  #vscode
-  web-search
-  #yarn
+  vscode
+  #web-search
+  yarn
   zsh-autosuggestions
   zsh-syntax-highlighting
   zsh-completions
@@ -126,12 +125,17 @@ autoload -U compinit && compinit
 # Weather
 alias __weather="curl wttr.in/~Moscow"
 
-# Star Wars
+# StarWars
 alias __starwars="telnet towel.blinkenlights.nl"
 
-# Vi and Vim
+# Vi/Vim
 alias vi="vim"
 alias tree="tree -C"
+
+# demo5
+alias __demo_open="sh ~/dev/demo5_scripts/open_demo.sh"
+alias __demo_clear="sh ~/dev/demo5_scripts/clear_demo.sh"
+alias __demo_5="sh ~/dev/demo5_scripts/5_demo.sh"
 
 # Fuck
 eval $(thefuck --alias)
@@ -144,7 +148,26 @@ source $ZSH/oh-my-zsh.sh
 # Tab completion for .ssh/config
 complete -o default -o nospace -W "$(grep "^Host" $HOME/.ssh/config | cut -d " " -f2)" scp sftp ssh
 
+# Nvm
+alias __migratenvm="nvm reinstall-packages $1"
+
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/nsladkii/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/nsladkii/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/nsladkii/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/nsladkii/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
 
