@@ -1,6 +1,4 @@
-export ZSH="/Users/nsladkii/.oh-my-zsh"
-
-export LANG=en_US.UTF-8
+export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="spaceship"
 
@@ -22,15 +20,15 @@ SPACESHIP_PROMPT_ORDER=(
   package       # Package version
   node          # Node.js section
   #php           # PHP section
-  conda         # conda virtualenv section
-  pyenv         # Pyenv section
+  #conda         # conda virtualenv section
+  #pyenv         # Pyenv section
   venv          # virtualenv section
   golang        # Go section
   docker        # Docker section
   #kubecontext   # Kubectl context section
   exec_time     # Execution time
   line_sep      # Line break
-  vi_mode       # Vi-mode indicator
+  #vi_mode       # Vi-mode indicator
   jobs          # Background jobs indicator
   exit_code     # Exit code section
   char          # Prompt character
@@ -40,7 +38,7 @@ SPACESHIP_PROMPT_ORDER=(
   #elixir        # Elixir section
   #xcode         # Xcode section
   #swift         # Swift section
-  rust          # Rust section
+  #rust          # Rust section
   #haskell       # Haskell Stack section
   #julia         # Julia section
   #aws           # Amazon Web Services section
@@ -51,37 +49,38 @@ SPACESHIP_PROMPT_ORDER=(
 )
 
 plugins=(
-  ansible
+  #ansible
+  asdf
   #ant
   #autojump
   #aws
   #bower
   brew
   #cake
-  rust
-  catimg
+  #rust
+  #catimg
   #chucknorris
-  colorize
+  #colorize
   colored-man-pages
-  command-not-found
+  #command-not-found
   #composer
   docker
   #dotenv
   #dotnet
-  encode64
-  extract
+  #encode64
+  #extract
   git
-  gitignore
+  #gitignore
   golang
   #gulp
   #helm
   #heroku
   history
   #httpie
-  jsontools
+  #jsontools
   #kubectl
   #laravel
-  last-working-dir
+  #last-working-dir
   #microk8s
   #minikube
   #mvn
@@ -94,13 +93,13 @@ plugins=(
   nvm
   macos
   #per-directory-history
-  perms
+  #perms
   #redis-cli
-  ripgrep
+  #ripgrep
   #rsync
-  rust
+  #rust
   #ssh-agent
-  systemd
+  #systemd
   #terraform
   thefuck
   tig
@@ -109,7 +108,7 @@ plugins=(
   #torrent
   #ubuntu
   #ufw
-  urltools
+  #urltools
   #vagrant
   vi-mode
   vscode
@@ -120,8 +119,6 @@ plugins=(
   zsh-completions
 )
 
-autoload -U compinit && compinit
-
 # Weather
 alias __weather="curl wttr.in/~Moscow"
 
@@ -130,44 +127,16 @@ alias __starwars="telnet towel.blinkenlights.nl"
 
 # Vi/Vim
 alias vi="vim"
-alias tree="tree -C"
 
 # demo5
 alias __demo_open="sh ~/dev/demo5_scripts/open_demo.sh"
 alias __demo_clear="sh ~/dev/demo5_scripts/clear_demo.sh"
 alias __demo_5="sh ~/dev/demo5_scripts/5_demo.sh"
 
-# Fuck
-eval $(thefuck --alias)
-
 # Clone nikolasmelui github projects (boilerplates)
 alias __gcnnb="git clone git@github.com:NikolasMelui/nikolasmelui-nodejs-boilerplate.git"
-
-source $ZSH/oh-my-zsh.sh
 
 # Tab completion for .ssh/config
 complete -o default -o nospace -W "$(grep "^Host" $HOME/.ssh/config | cut -d " " -f2)" scp sftp ssh
 
-# Nvm
-alias __migratenvm="nvm reinstall-packages $1"
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/nsladkii/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/nsladkii/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/nsladkii/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/nsladkii/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
+source $ZSH/oh-my-zsh.sh
