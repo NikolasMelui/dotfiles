@@ -136,7 +136,7 @@ alias __demo_5="sh ~/dev/demo5_scripts/5_demo.sh"
 # Clone nikolasmelui github projects (boilerplates)
 alias __gcnnb="git clone git@github.com:NikolasMelui/nikolasmelui-nodejs-boilerplate.git"
 
+source $ZSH/oh-my-zsh.sh
+
 # Tab completion for .ssh/config
 complete -o default -o nospace -W "$(grep "^Host" $HOME/.ssh/config | cut -d " " -f2)" scp sftp ssh
-
-source $ZSH/oh-my-zsh.sh
