@@ -90,7 +90,6 @@ plugins=(
   nmap
   node
   npm
-  nvm
   macos
   #per-directory-history
   #perms
@@ -110,7 +109,7 @@ plugins=(
   #ufw
   #urltools
   #vagrant
-  vi-mode
+  #vi-mode
   vscode
   #web-search
   yarn
@@ -119,19 +118,15 @@ plugins=(
   zsh-completions
 )
 
-# Weather
-alias __weather="curl wttr.in/~Moscow"
-
-# StarWars
+# Alias (miscs)
+alias __weathermoscow="curl wttr.in/~Moscow"
+alias __weathersamara="curl wttr.in/~Samara"
 alias __starwars="telnet towel.blinkenlights.nl"
 
-# Vi/Vim
+# Alias (applications)
 alias vi="vim"
-
-# demo5
-alias __demo_open="sh ~/dev/demo5_scripts/open_demo.sh"
-alias __demo_clear="sh ~/dev/demo5_scripts/clear_demo.sh"
-alias __demo_5="sh ~/dev/demo5_scripts/5_demo.sh"
+alias python="python3"
+alias ngrok="/Applications/ngrok"
 
 # Clone nikolasmelui github projects (boilerplates)
 alias __gcnnb="git clone git@github.com:NikolasMelui/nikolasmelui-nodejs-boilerplate.git"
